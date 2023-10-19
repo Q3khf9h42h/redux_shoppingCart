@@ -4,13 +4,15 @@ import Card from '../UI/Card';
 import classes from './ProductItem.module.css';
 
 const ProductItem = (props) => {
+  const cart = useSelector((state) => state.cart);
   const dispatch=useDispatch();
   
   const { title, price, description,id } = props;
   
   const addToCartHandler=()=>{
+   
     dispatch(
-      cartActionsaddItemToCart({
+     cartActions.addItemToCart({
       id,
       title,
       price,
